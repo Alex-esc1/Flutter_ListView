@@ -1,5 +1,4 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -27,32 +26,18 @@ class BodyListView extends StatelessWidget {
 }
 
 Widget _myListView() {
-  return ListView(
-    padding: EdgeInsets.all(8.0),
-    //scrollDirection: Axis.horizontal,
-    //itemExtent: 300, // задаваемая фиксируемое значение мы экономим на производительности, т.к. flutter не нужно высчитывать отступ или размер элемента
-    // ignore: prefer_const_literals_to_create_immutables
-    reverse: true,
-    // ignore: prefer_const_literals_to_create_immutables
-    children: <Widget>[
-      ListTile(
-        title: Text('Sun'),
-        subtitle: Text('Today'),
-        leading: Icon(Icons.wb_sunny),
-        trailing: Icon(Icons.keyboard_arrow_right),
-      ),
-      ListTile(
-        title: Text('Cloudy'),
-        subtitle: Text('Today'),
-        leading: Icon(Icons.wb_cloudy),
-        trailing: Icon(Icons.keyboard_arrow_right),
-      ),
-      ListTile(
-        title: Text('Snow'),
-        subtitle: Text('Today'),
-        leading: Icon(Icons.ac_unit),
-        trailing: Icon(Icons.keyboard_arrow_right),
-      ),
-    ],
+  final List<String> items = List<String>.generate(10000, (i) => 'Item $i');
+
+  return ListView.builder(
+    itemCount: items.length,
+    itemBuilder: (context, index) {
+      return Card(
+        child: ListTile(
+          title: Text('${items[index]}'),
+          leading: Icon(Icons.insert_photo, color: Colors.red),
+          trailing: Icon(Icons.keyboard_arrow_right),
+        ),
+      );
+    },
   );
 }
