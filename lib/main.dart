@@ -30,7 +30,9 @@ Widget _myListView() {
   return ListView(
     padding: EdgeInsets.all(8.0),
     //scrollDirection: Axis.horizontal,
-    itemExtent: 300,
+    //itemExtent: 300, // задаваемая фиксируемое значение мы экономим на производительности, т.к. flutter не нужно высчитывать отступ или размер элемента
+    // ignore: prefer_const_literals_to_create_immutables
+    reverse: true,
     // ignore: prefer_const_literals_to_create_immutables
     children: <Widget>[
       ListTile(
