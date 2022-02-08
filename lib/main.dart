@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
@@ -13,8 +13,42 @@ class MyApp extends StatelessWidget {
           title: const Text("ListView"),
           centerTitle: true,
         ),
-        body: null,
+        body: BodyListView(),
       ),
     );
   }
+}
+
+class BodyListView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return _myListView();
+  }
+}
+
+Widget _myListView() {
+  return ListView(
+    padding: EdgeInsets.all(8.0),
+    // ignore: prefer_const_literals_to_create_immutables
+    children: [
+      ListTile(
+        title: Text('Sun'),
+        subtitle: Text('Today'),
+        leading: Icon(Icons.wb_sunny),
+        trailing: Icon(Icons.keyboard_arrow_right),
+      ),
+      ListTile(
+        title: Text('Cloudy'),
+        subtitle: Text('Today'),
+        leading: Icon(Icons.wb_cloudy),
+        trailing: Icon(Icons.keyboard_arrow_right),
+      ),
+      ListTile(
+        title: Text('Snow'),
+        subtitle: Text('Today'),
+        leading: Icon(Icons.ac_unit),
+        trailing: Icon(Icons.keyboard_arrow_right),
+      ),
+    ],
+  );
 }
