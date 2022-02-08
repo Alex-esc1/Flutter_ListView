@@ -29,7 +29,7 @@ class BodyListView extends StatelessWidget {
 Widget _myListView() {
   return ListView(
     padding: EdgeInsets.all(8.0),
-    scrollDirection: Axis.horizontal,
+    //scrollDirection: Axis.horizontal,
     itemExtent: 300,
     // ignore: prefer_const_literals_to_create_immutables
     children: <Widget>[
